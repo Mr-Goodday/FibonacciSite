@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="shortcut icon" href="src/img/FiFi.png">
+    <link rel="stylesheet" href="src/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FibonacciSite</title>
+</head>
+<body>
+    <header>
+        <h1><img src="src/img/FiFi.png" alt="logo_img"><span>Fibonacci</span>Site</h1>
+        <nav>
+            <a href="#kim-jest">Kim jest Fibonacci</a>
+            <a href="#jak-wyglada">Jak wygląda ciąg Fibonacciego</a>
+            <a href="#przyklady">Przykłady w przyrodzie</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Kim jest Fibonacci?</h2>
+        <section id="kim-jest" class="text-img-box">
+            <div class="text">
+                <h3>Życiorys</h3>
+                <p><span class="akapit">Fibonacci, Leonardo z <a href="https://pl.wikipedia.org/wiki/Piza" target="_blank">Pizy</a> (ur. ok. 1175 w <a href="https://pl.wikipedia.org/wiki/Piza" target="_blank">Pizie</a>, zm. 1250), znany jako Leonardo Fibonacci, Filius Bonacci (syn Bonacciego), Leonardo Pisano (z <a href="https://pl.wikipedia.org/wiki/Piza" target="_blank">Pizy</a>) – włoski <a href="https://pl.wikipedia.org/wiki/Matematyk" target="_blank">matematyk</a>.</span></p>
+                <p><span class="akapit">Jego ojciec, Guglielmo z rodziny Bonacci, zajmował stanowisko dyplomatyczne w Afryce północnej i Fibonacci tam właśnie się kształcił. Pierwsze lekcje matematyki pobierał od arabskiego nauczyciela w mieście Boużia (dziś algierska Bidżaja). Dużo podróżował najpierw razem z ojcem, później samodzielnie, odwiedzając i kształcąc się w takich miejscach jak Egipt, Syria, Prowansja, Grecja i <a href="https://pl.wikipedia.org/wiki/Sycylia" target="_blank">Sycylia</a>. W czasie swych podróży po Europie i po krajach Wschodu miał okazję poznać osiągnięcia matematyków arabskich i hinduskich, między innymi <a href="https://pl.wikipedia.org/wiki/Dziesiętny_system_liczbowy" target="_blank">dziesiętny system liczbowy</a>. Około 1200 roku Fibonacci zakończył podróże i powrócił do Pizy.</span></p>
+                <h3>Dzieła</h3>
+                <p><span class="akapit">Napisał szereg rozpraw matematycznych, z których wiele zaginęło. Wśród prac, których kopie zachowały się do czasów współczesnych znajdują się:</span></p>
+                <ul>
+                    <li>Liber Abaci (1202), gdzie opisał <a href="https://pl.wikipedia.org/wiki/System_liczbowy" target="_blank">system pozycyjny liczb</a> i wyłożył podstawy <a href="https://pl.wikipedia.org/wiki/Arytmetyka" target="_blank">arytmetyki</a>,</li>
+                    <li>Practica geometriae (1220), będące połączeniem <a href="https://pl.wikipedia.org/wiki/Algebra" target="_blank">algebry</a> i <a href="https://pl.wikipedia.org/wiki/Geometria" target="_blank">geometrii</a>, oraz</li>
+                    <li>Flos (1225) i Liber quadratorum.</li>
+                </ul>
+            </div>
+            <img src="src/img/Leonardo-Pisano-Fibonacci-f9d544e22fb147fea36f99b4dcd77f50.jpg" alt="prof">
+        </section>
+
+        <section id="jak-wyglada" class="full-bg center-text-img">
+            <h2>Jak wygląda ciąg Fibonacciego?</h2>
+            <p class="center">Ciąg Fibonacciego – ciąg liczb naturalnych określony <a href="https://pl.wikipedia.org/wiki/Rekurencja" target="_blank"> rekurencyjnie </a> w sposób następujący: <br> Pierwszy wyraz jest równy 0, drugi jest równy 1, każdy następny jest sumą dwóch poprzednich</p>
+            <p>Formalnie:</p>
+            <img id="wzor" src="src/img/wzór.png" alt=""> <br> <br>
+            <p>Ciąg został omówiony w roku 1202 przez Leonarda z Pizy, zwanego Fibonaccim, w dziele Liber abaci jako rozwiązanie zadania o rozmnażaniu się królików. Nazwę „ciąg Fibonacciego” spopularyzował w XIX w. <a href="https://pl.wikipedia.org/wiki/Édouard_Lucas" target="_blank"> Édouard Lucas</a>.</p>
+            <p>Teoretycznie wartości kolejnych wyrazów ciągu Fibonacciego mogą być obliczone wprost z definicji, jest to jednak metoda na tyle wolna, że stosowanie jej ma tylko sens dla niewielu początkowych wyrazów ciągu, nawet na bardzo szybkich komputerach. Wynika to z tego, że definicja Fn wielokrotnie odwołuje się do wartości poprzednich wyrazów ciągów. <a href="https://pl.wikipedia.org/wiki/Drzewo_wywołań_funkcji" target="_blank"> Drzewo wywołań </a> takiego algorytmu dla parametru n musi mieć co najmniej Fn liści o wartości 1. Ponieważ ciąg Fibonacciego rośnie wykładniczo, oznacza to wyjątkowo słabą wydajność. <br> Istnieje równie prosta i znacznie szybsza metoda. Obliczamy wartości ciągu po kolei: F0, F1, F2 i tak aż do Fn, za każdym razem korzystając z tego, co już obliczyliśmy. Nie trzeba nawet zapamiętywać wszystkich obliczonych dotychczas wartości, ponieważ wystarczą dwie ostatnie. Daje to <a href="https://pl.wikipedia.org/wiki/Złożoność_obliczeniowa" target="_blank"> złożoność liniową</a> – o wiele lepszą od wykładniczej złożoności poprzedniej metody. Metoda ta może być postrzegana jako zastosowanie <a href="https://pl.wikipedia.org/wiki/Programowanie_dynamiczne" target="_blank"> programowania dynamicznego</a>.</p>
+            <img src="src/img/250px-Fibonacci_spiral_34.svg.png" alt="">
+        </section> 
+
+        <h2>Przykłady w przyrodzie</h2>
+        <section id="przyklady" class="text-img-box">
+            <div class="text">
+                <p>Okazuje się, że ciąg Fibonacciego pozwala uzyskać roślinie kształt idealny (przykładowe zdjęcie obok). Łuski szyszek tworzą spirale układające się w dwóch przeciwległych kierunkach, a ich ilość odpowiada liczbom ciągu Fibonacciego.</p>
+                <p>Złota spirala również znajduje swoje odzwierciedlenie w przyrodzie. Zaobserwować ją można patrząc na muszle ślimaków lub liście kopytnika.</p>
+                <img src="src/img/Asarum_europaeum_lapai_resize.JPG.jpg" alt="roślina1">
+                <p>Jeden płatek ma Czermień błotna. Liście koniczyny mają 3 listki – to dlatego tak trudno znaleźć czterolistną koniczynę! Knieć błotna ma 5 płatków, z kolei stokrotka ma ich 21.</p>
+                <img src="src/img/koniec.jpg" alt="roslina2">
+            </div>
+            <img src="src/img/pobrany plik.jfif" alt="szycha">
+        </section>
+    </main>
+
+    <footer>
+        <ul>
+            <h6>Źródła:</h6>
+            <li><a href="https://pl.wikipedia.org" target="_blank">wikipedia.org</a></li>
+            <li><a href="https://www.youtube.com/watch?v=wb7kPaM8cfg" title="Tajemniczy ciąg Fibonacciego. Złota liczba. Boska proporcja" target="_blank">YT: Tajemniczy ci...</a></li>
+        </ul>
+        <ul>
+            <h6>Autorzy:</h6>
+            <li>Dawid Toporski</li>
+            <li>Krystian Dzień</li>
+        </ul>
+    </footer>
+</body>
+</html>

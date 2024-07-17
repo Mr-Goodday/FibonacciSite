@@ -1,0 +1,302 @@
+/* ============================================================================================== Imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* =============================================================================================== Resets */
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    line-height: 128%;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-1);
+    cursor: default;
+    transition: .2s;
+}
+
+/* ============================================================================================ Variables */
+
+:root {
+    --text-1: #e9ebef;
+    --text-2: #0f1115;
+
+    --background-1: #101114;
+    --background-2: #212329;
+    --background-3: #393D47;
+
+    --primary: #97BD91;
+    --secondary: #615a46;
+
+    --accent: #BDA291;
+
+    --gap: clamp(2rem, 8vw, 5rem);
+    --full: minmax(var(--gap), 1fr);
+    --content: min(89ch, 100% - var(--gap) * 2);
+    --popout: minmax(0, 5rem);
+    --feature: minmax(0, 8rem);
+
+    --header-height: 89px;
+
+    --Fi: 1.618;
+}
+
+/* =============================================================================================== Basics */
+
+html {
+    hanging-punctuation: first last;
+    color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :has(:target) {
+        scroll-behavior: smooth;
+        scroll-padding-top: calc(var(--header-height) * 2);
+    }
+}
+
+body {
+    min-height: 100svh;
+    padding-top: calc( 55px + var(--header-height)); /* = 144 */
+    background-color: var(--background-2);
+    background-image: url(../src/img/wave-haikei2.svg);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+/* ============================================================================================ Scrollbar */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--background-3);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary);
+}
+
+/* ============================================================================================== Headers */
+
+h1, h2, h3, h4, h5, h6 {text-wrap: balance;}
+
+h1 {
+    font-size: 55px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+h2 {
+    position: relative;
+    margin-bottom: 21px;
+    width: 100%;
+    border-top: 3px solid var(--primary);
+    /* background: linear-gradient(180deg, var(--secondary) -75%, transparent 75%); */
+    text-align: center;
+    font-size: 34px;   
+    font-weight: 700;
+    grid-column: popout;
+}
+
+h2::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -17px;
+    width: calc(100% + 34px);
+    height: 5px;
+    background-color: var(--primary);
+    /* background-color: red; */
+    filter: blur(13px);
+}
+
+h3 {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+/* ============================================================================================ paragraph */
+
+p {
+    margin-bottom: 21px;
+}
+
+p:has(.akapit)>.akapit {
+    display: inline;
+    margin-left: 13px;
+}
+
+p.center {
+    text-align: center;
+}
+
+/* ================================================================================================ links */
+
+a {
+    color: var(--accent);
+    cursor: pointer;
+}
+
+/* ================================================================================================= list */
+
+ul {margin-left: 13px;}
+
+li {margin-left: 34px; list-style-type: "► ";}
+
+::marker {color: var(--primary); font-size: 21px;}
+
+/* ================================================================================================ Image */
+
+img {
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =============================================================================================== header */
+
+header {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    width: 100%;
+    background-color: var(--background-3);
+    padding-inline: var(--gap);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+}
+
+h1>span {
+    color: var(--primary);
+}
+
+h1>img {
+    height: 55px;
+    margin-right: 8px;
+}
+
+/* ================================================================================================== nav */
+
+nav {
+    display: flex;
+    list-style: none;
+}
+
+nav>a {
+    padding: 5px 13px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-1);
+}
+
+nav>a:hover {
+    background-color: var(--secondary);
+}
+
+/* ================================================================================================= Main */
+
+main,
+.full-bg {
+    display: grid;
+    grid-template-columns:
+        [full-start] var(--full)
+        [feature-start] var(--feature)
+        [popout-start] var(--popout)
+        [content-start] var(--content) [content-end]
+        var(--popout) [popout-end]
+        var(--feature) [feature-end]
+        var(--full) [full-end];
+}
+
+main> :not(.full-bg, .popout, .feature, .full, .heroSection, h2),
+.full-bg> :not(.full-bg, .popout, .feature, .full, .heroSection, h2) {
+    grid-column: content;
+}
+
+section:not(:last-child) {
+    padding: 34px 0;
+    margin-bottom: 144px;
+}
+
+.full-bg {
+    grid-column: full;
+}
+
+.popout {
+    grid-column: popout;
+}
+
+.feature {
+    grid-column: feature;
+}
+
+.full {
+    padding: 89px 0;
+    grid-column: full;
+}
+
+/* ====================================================================================== text img box */
+
+.text-img-box {display: flex; gap: 21px;}
+
+.text-img-box>:first-child {width: 80%;}
+
+.text-img-box>:last-child {width: 20%; max-height: 377px; box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;}
+
+.text>img {
+    max-width: 233px;
+    border-radius: 8px;
+    border: 5px solid var(--text-2);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+/* ================================================================================= center text image */
+
+.center-text-img {
+    /* background-color: var(--background-1); */
+    background: url(../src/img/stacked-waves-haikei.svg);
+    background-position: center;
+    background-size: cover;
+}
+
+.center-text-img>img {
+    background-color: white;
+    border-radius: 8px;
+    border: 5px solid var(--text-2);
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+/* ============================================================================================= footer */
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 233px;
+    padding-top: 89px;
+    gap: 34px;
+    /* background-color: var(--background-3); */
+    background-image: url(../src/img/wave-haikei-footer2.svg);
+}
